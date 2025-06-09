@@ -46,19 +46,20 @@ botaoFiltrar.addEventListener('click', function () {
         if (mostrarCarta) {
             carta.classList.add('mostrar');
             carta.classList.remove('esconder');
-        }else{
+        } else {
             carta.classList.remove('mostrar');
             carta.classList.add('esconder');
-            
-            const preco = document.querySelector('#preco');
-            const btnFiltrar = document.querySelector('#btn-filtrar');
-
-            preco.addEventListener('keydown', function (event) {
-                //Se a tecla pressionada for "Enter"
-                if (event.key === 'Enter') {
-                    btnFiltrar.click();
-                }
-            });
         }
     });
+});
+
+// Adiciona o listener para o Enter no campo de preço apenas uma vez
+const precoInput = document.querySelector('#preco');
+const btnFiltrar = document.querySelector('.btn-filtrar');
+
+precoInput.addEventListener('keydown', function (event) {
+    // Se a tecla pressionada for "Enter"
+    if (event.key === 'Enter') {
+        btnFiltrar.click();
+    }
 });
